@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Bavana Shree!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,14 +16,22 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            /* Soft pink and purple gradient */
-            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            /* Dynamic Animated Gradient Background */
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             min-height: 100vh;
             overflow-x: hidden;
             color: #333;
         }
 
-        /* Hero Section / Landing */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -30,102 +39,109 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            position: relative;
+            z-index: 10;
         }
 
         .hero-content {
-            /* Glassmorphism effect */
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            padding: 50px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            max-width: 600px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            max-width: 650px;
             width: 100%;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUpFade 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUpFade {
+            to { transform: translateY(0); opacity: 1; }
         }
 
         h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 3.5rem;
-            color: #ff477e;
-            line-height: 1.3;
-            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ff3366;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(255, 51, 102, 0.3);
         }
 
-        .highlight {
-            color: #7000ff;
+        /* Typewriter Effect Cursor */
+        .typewriter-text {
+            display: inline-block;
+            color: #6a11cb;
+            border-right: 3px solid #6a11cb;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #6a11cb; }
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
             color: #444;
             font-weight: 400;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards 1.5s;
         }
 
-        /* Button Styling */
+        /* Pulsing Glowing Button */
         .btn {
-            padding: 15px 35px;
-            font-size: 1.1rem;
+            padding: 16px 45px;
+            font-size: 1.2rem;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             color: white;
-            background: #ff477e;
+            background: linear-gradient(45deg, #ff3366, #ff758c);
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 71, 126, 0.4);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.5);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards 2s, pulse 2s infinite 3s;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            background: #ff2a6d;
-            box-shadow: 0 8px 25px rgba(255, 71, 126, 0.6);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.7);
         }
 
-        /* Load-in Animations */
-        .animate-pop-in {
-            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        .animate-fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in forwards 0.5s;
-        }
-
-        .animate-slide-up {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 1s ease-out forwards 1s;
-        }
-
-        @keyframes popIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 51, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 51, 102, 0); }
         }
 
         @keyframes fadeIn {
             to { opacity: 1; }
         }
 
-        @keyframes slideUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Hidden elements class */
+        /* Hidden Section */
         .hidden {
             display: none !important;
         }
 
         /* Message Section */
         #message-section {
-            padding: 60px 20px;
-            max-width: 800px;
+            padding: 80px 20px;
+            max-width: 850px;
             margin: 0 auto;
             text-align: center;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            position: relative;
+            z-index: 10;
         }
 
         #message-section.visible {
@@ -133,153 +149,258 @@
             opacity: 1;
         }
 
+        /* 3D Hover Cards */
         .quote-card {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transform: translateY(30px);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.8);
+            transform: translateY(50px) scale(0.9);
             opacity: 0;
-            transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-10px) scale(1.02) !important; /* Overrides reveal transform */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         #message-section.visible .quote-card {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
             opacity: 1;
         }
 
         .quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #444;
-            line-height: 1.6;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.7;
+            position: relative;
         }
 
+        .quote::before, .quote::after {
+            content: '"';
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #ff3366;
+            opacity: 0.3;
+            position: absolute;
+        }
+        .quote::before { top: -20px; left: -20px; }
+        .quote::after { bottom: -40px; right: -10px; }
+
         .signature {
-            margin-top: 50px;
-            margin-bottom: 50px;
+            margin-top: 60px;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease 1.5s;
+        }
+
+        #message-section.visible .signature {
+            opacity: 1;
+            transform: scale(1);
         }
 
         .signature p {
             font-size: 1.2rem;
             color: #555;
+            font-weight: 600;
         }
 
         .signature h3 {
-            font-family: 'Pacifico', cursive;
-            color: #ff477e;
-            font-size: 3rem;
-            margin-top: 10px;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(45deg, #ff3366, #6a11cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 4rem;
+            margin-top: 5px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
         }
 
-        /* Floating Hearts Animation */
-        .heart {
+        /* Particle/Confetti Animations */
+        #particles-container {
             position: fixed;
-            color: #ff477e;
-            user-select: none;
+            top: 0; left: 0; width: 100vw; height: 100vh;
             pointer-events: none;
-            animation: floatUp 5s linear forwards;
-            z-index: 9999;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        .particle {
+            position: absolute;
+            will-change: transform, opacity;
         }
 
-        /* Mobile Responsiveness */
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 3rem; }
             .hero-content { padding: 40px 20px; }
-            .quote { font-size: 1rem; }
+            .quote { font-size: 1.1rem; }
+            .signature h3 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
-    <div id="heart-container"></div>
+    <div id="particles-container"></div>
 
     <header class="hero">
         <div class="hero-content">
-            <h1 class="animate-pop-in">Happy Birthday, <br> <span class="highlight">Bavana Shree!</span></h1>
-            <p class="subtitle animate-fade-in">Wishing you a day as beautiful and special as your smile.</p>
-            <button id="revealBtn" class="btn animate-slide-up">Tap for a Surprise</button>
+            <h1>Happy Birthday, <br> <span class="typewriter-text" id="typewriter"></span></h1>
+            <p class="subtitle">Wishing you a day as beautiful, bright, and special as your smile.</p>
+            <button id="revealBtn" class="btn">Tap for a Magic Surprise ✨</button>
         </div>
     </header>
 
     <section id="message-section" class="hidden">
         <div class="quote-card">
-            <p class="quote">"Count your life by smiles, not tears. Count your age by friends, not years. Happy beautiful birthday to my amazing friend!"</p>
+            <p class="quote">Count your life by smiles, not tears. Count your age by friends, not years. Happy beautiful birthday to my amazing friend!</p>
         </div>
         <div class="quote-card">
-            <p class="quote">"You are such a special friend, who deserves a special day, for being exactly who you are and bringing absolute joy in every way."</p>
+            <p class="quote">You are such a special friend, who deserves a special day, for being exactly who you are and bringing absolute joy in every way.</p>
         </div>
         <div class="quote-card">
-            <p class="quote">"May your path ahead be filled with all the love, success, and happiness you deserve. Have a wonderful birthday, Bavana Shree!"</p>
+            <p class="quote">May your path ahead be filled with all the love, success, and happiness you truly deserve. Keep shining bright!</p>
         </div>
         <div class="signature">
-            <p>With lots of love,</p>
+            <p>With lots of love & best wishes,</p>
             <h3>Athiban</h3>
         </div>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Typewriter effect for the name
+            const name = "Bavana Shree!";
+            const typewriterElement = document.getElementById('typewriter');
+            let i = 0;
+
+            function typeWriter() {
+                if (i < name.length) {
+                    typewriterElement.innerHTML += name.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 150); // Speed of typing
+                } else {
+                    // Stop blinking cursor after typing is done
+                    setTimeout(() => {
+                        typewriterElement.style.borderRight = 'none';
+                    }, 2000);
+                }
+            }
+            
+            // Start typing effect slightly after page load
+            setTimeout(typeWriter, 800);
+
             const btn = document.getElementById('revealBtn');
             const messageSection = document.getElementById('message-section');
 
             btn.addEventListener('click', () => {
-                // 1. Reveal the message section
+                // Remove animation so it doesn't mess with fading out
+                btn.style.animation = 'none'; 
+                btn.style.opacity = '0';
+                btn.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => { btn.style.display = 'none'; }, 300);
+
+                // Reveal message section
                 messageSection.classList.remove('hidden');
                 
-                // Slight delay to allow display:block to apply before animating opacity
                 setTimeout(() => {
                     messageSection.classList.add('visible');
                     
-                    // 2. Stagger the animation of the quote cards
+                    // Stagger card reveals
                     const cards = document.querySelectorAll('.quote-card');
                     cards.forEach((card, index) => {
-                        // Each card waits a little longer than the previous one
-                        card.style.transitionDelay = `${index * 0.4}s`; 
+                        card.style.transitionDelay = `${index * 0.3}s`; 
                     });
 
-                    // 3. Smooth scroll down to the messages
-                    messageSection.scrollIntoView({ behavior: 'smooth' });
+                    // Scroll down smoothly
+                    setTimeout(() => {
+                        messageSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 500);
                 }, 50);
 
-                // 4. Hide the button after clicking so it looks clean
-                btn.style.opacity = '0';
-                setTimeout(() => { btn.style.display = 'none'; }, 300);
-
-                // 5. Start the floating hearts animation
-                startHearts();
+                // Trigger massive confetti and heart explosion
+                fireConfettiExplosion();
+                // Start continuous light falling hearts
+                startContinuousParticles();
             });
 
-            function startHearts() {
-                // Creates a new heart every 300 milliseconds
-                setInterval(createHeart, 300);
+            const particlesContainer = document.getElementById('particles-container');
+            const colors = ['#ff3366', '#ff758c', '#6a11cb', '#2575fc', '#fecfef', '#ffd700'];
+            const shapes = ['❤️', '✨', '🎉', '🌸'];
+
+            function fireConfettiExplosion() {
+                for (let i = 0; i < 100; i++) {
+                    createParticle(true);
+                }
             }
 
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                
-                // You can change this to a picture or a different emoji if you prefer
-                heart.innerHTML = '❤️'; 
-                
-                // Randomize the horizontal position, speed, and size
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 3 + 's'; // Between 3s and 6s
-                heart.style.fontSize = Math.random() * 1.5 + 0.8 + 'rem';
+            function startContinuousParticles() {
+                setInterval(() => createParticle(false), 400);
+            }
 
-                document.getElementById('heart-container').appendChild(heart);
+            function createParticle(isExplosion) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Randomly choose a shape or a colored square/circle for confetti
+                const isShape = Math.random() > 0.4;
+                if (isShape) {
+                    particle.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
+                    particle.style.fontSize = Math.random() * 20 + 15 + 'px';
+                } else {
+                    particle.style.width = Math.random() * 10 + 5 + 'px';
+                    particle.style.height = Math.random() * 10 + 5 + 'px';
+                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                }
 
-                // Clean up the heart from the DOM after it finishes floating up
-                setTimeout(() => {
-                    heart.remove();
-                }, 6000);
+                // Initial positions
+                let startX, startY, endX, endY, duration;
+
+                if (isExplosion) {
+                    // Explode from center
+                    startX = 50;
+                    startY = 50;
+                    const angle = Math.random() * Math.PI * 2;
+                    const velocity = 30 + Math.random() * 70;
+                    endX = 50 + Math.cos(angle) * velocity;
+                    endY = 50 + Math.sin(angle) * velocity + 100; // Drop down eventually
+                    duration = Math.random() * 2 + 2;
+                } else {
+                    // Fall from top
+                    startX = Math.random() * 100;
+                    startY = -10;
+                    endX = startX + (Math.random() * 20 - 10);
+                    endY = 110;
+                    duration = Math.random() * 4 + 4;
+                }
+
+                particle.style.left = startX + 'vw';
+                particle.style.top = startY + 'vh';
+                
+                particlesContainer.appendChild(particle);
+
+                // Animate using Web Animations API for better performance
+                const animation = particle.animate([
+                    { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translate(${endX - startX}vw, ${endY - startY}vh) rotate(${Math.random() * 720}deg)`, opacity: isExplosion ? 0 : 0.8 }
+                ], {
+                    duration: duration * 1000,
+                    easing: isExplosion ? 'cubic-bezier(.17,.89,.32,1)' : 'linear',
+                    fill: 'forwards'
+                });
+
+                animation.onfinish = () => particle.remove();
             }
         });
     </script>
 </body>
 </html>
+
+
